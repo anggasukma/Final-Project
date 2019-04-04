@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Final Project JavaScript Development Course</title>
+	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="bodybg">
+	
+	<!-- HEADER -->
+	<div class="col-md-12 col-sm-12 col-xs-12 navbar">
+		<span onclick="window.location='index.html';" style="cursor:pointer"><b>Final Project JavaScript Development Course</b></span>
+		<span class="pull-right">
+				<div class="btn-group btn-group-toggle" data-toggle="buttons">
+					<span class="btn btn-dark" onclick="window.location='profile.html';">
+					  Profile
+					</span>
+					<span class="btn btn-dark" onclick="window.location='exercise1.html';">
+						Exercise-1
+					</span>
+					<span class="btn btn-dark active" onclick="window.location='exercise2.html';">
+						Exercise-2
+					</span>
+					<span class="btn btn-dark" onclick="window.location='exercise3.html';">
+						Exercise-3
+					</span>
+				</div>
+		</span>
+	</div>
+	<!-- END HEADER -->
+
+	<!-- CONTENT -->
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<div class="row">
+			<div class="col-md-4 col-sm-2 col-xs-12">&nbsp;</div>
+			<div class="col-md-4 col-sm-8 col-xs-12 box">
+				<hr class="hr_doted">
+				<h3>CALCULATOR</h3>
+				<hr class="hr_doted">
+				
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<table border="0" width="100%">
+						<tr>
+							<td width="100%" colspan="5"><input type="text" id="hasil" value="" class="col-md-12 col-sm-12 col-xs-12 view" readonly></td>
+						</tr>
+						<tr>
+							<td width="20%"><div class="tombolangka btn-primary" onclick="FungsiClickTombol('7','angka')">7</div></td>
+							<td width="20%"><div class="tombolangka btn-primary" onclick="FungsiClickTombol('8','angka')">8</div></td>
+							<td width="20%"><div class="tombolangka btn-primary" onclick="FungsiClickTombol('9','angka')">9</div></td>
+							<td width="20%"><div class="tombolangka btn-warning" onclick="FungsiClickTombol('+','operator')"><i class="fa fa-plus"></i></div></td>
+							<td width="20%"><div class="tombolangka btn-warning" onclick="FungsiClickTombol('-','operator')"><i class="fa fa-minus"></i></div></td>
+						</tr>
+						<tr>
+							<td><div class="tombolangka btn-primary" onclick="FungsiClickTombol('4','angka')">4</div></td>
+							<td><div class="tombolangka btn-primary" onclick="FungsiClickTombol('5','angka')">5</div></td>
+							<td><div class="tombolangka btn-primary" onclick="FungsiClickTombol('6','angka')">6</div></td>
+							<td><div class="tombolangka btn-warning" onclick="FungsiClickTombol('*','operator')"><i class="fa fa-asterisk"></i></div></td>
+							<td><div class="tombolangka btn-warning" onclick="FungsiClickTombol('/','operator')"><b>/</b></div></td>
+						</tr>
+						<tr>
+							<td><div class="tombolangka btn-primary" onclick="FungsiClickTombol('1','angka')">1</div></td>
+							<td><div class="tombolangka btn-primary" onclick="FungsiClickTombol('2','angka')">2</div></td>
+							<td><div class="tombolangka btn-primary" onclick="FungsiClickTombol('3','angka')">3</div></td>
+							<td colspan="2"><div class="tombolangka btn-warning" onclick="FungsiClickClear()"><b>C</b></div></td>
+						</tr>
+						<tr>
+							<td><div class="tombolangka btn-warning" onclick="FungsiClickBS()"><i class="fa fa-arrow-left"></i></div></td>
+							<td><div class="tombolangka btn-primary" onclick="FungsiClickTombol('0','angka')">0</div></td>
+							<td><div class="tombolangka btn-warning" onclick="FungsiClickTombol('.','operator')"><b>.</b></div></td>
+							<td colspan="2"><div class="tombolangka btn-success" onclick="FungsiClickHasil()"><b>=</b></div></td>
+						</tr>
+					</table>
+				</div>
+				<div class="col-md-12 col-sm-12s col-xs-12">
+					<br>
+					<p class="textfoot">DevC JavaScript Development Course<br><b>Exercise 2</b></p>
+				</div>
+				
+			</div>
+			<div class="col-md-4 col-sm-2 col-xs-12">&nbsp;</div>
+		</div>
+	</div>
+	<!-- END CONTENT -->
+	
+	<script type="text/javascript" src="content.js"></script>
+	
+	<script>
+		var
+		chasil=0;
+		
+		function FungsiClickTombol(nilai,act){
+			if(chasil){
+				FungsiClickClear();
+			}
+			document.getElementById("hasil").value+=nilai;
+		}
+		function FungsiClickHasil(){
+			var hitung = document.getElementById("hasil").value;
+			
+			if(hitung!=""){
+				var hasil = eval(hitung);
+				document.getElementById("hasil").value = hasil;
+				chasil=1;
+			}
+		}
+		function FungsiClickClear(){
+			document.getElementById("hasil").value="";
+			chasil=0;
+		}
+		function FungsiClickBS(){
+			var texthasil= document.getElementById("hasil").value;
+				texthasil= texthasil.substring(0, texthasil.length - 1);
+			document.getElementById("hasil").value=texthasil;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+
+	.navbar{
+		background: rgba(0, 0, 0, 1);
+    	padding: 15px;
+		border-color: #e7e7e7;
+		color: #e7e7e7;
+		top: 0;
+		/* border-width: 0 0 1px; */
+		position: fixed;
+		right: 0;
+		left: 0;
+		z-index: 1030;
+	}
+	.bodybg{		
+		background: url(img/banner.jpeg) no-repeat center center fixed;
+		background-size: cover; 
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	.topnav a:hover, .topnav a:focus {
+		background-color: #000000 !important;
+		color: #ffffff !important;
+	}
+	.btn{
+		cursor:pointer;
+	}
+
+	h3 {
+		text-align: center;
+	}
+	.box{
+		background-color: rgba(0, 0, 0, 0.8);
+		margin-top:20px; 
+		border-radius:5px;
+		color: #fff;
+	}
+	.textfoot{
+		text-align: center;
+		border-radius:5px;
+		color: #fff;
+		background-color: #000;
+	}
+	hr.blue {
+	  border-top: 1px dotted;
+	}
+	
+
+	input.view 
+	{ 
+		background-color: white; 
+		border: solid black 2px; 
+		width: 100%;
+		text-align: right;
+	} 
+
+	.tombolangka 
+	{ 
+		text-align: center;
+		cursor: pointer;
+		height: 100%;
+	}
+
+	.scrolling-wrapper {
+		overflow-x: scroll;
+		overflow-y: hidden;
+		white-space: nowrap;
+	 }

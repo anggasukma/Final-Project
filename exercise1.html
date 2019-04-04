@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Final Project JavaScript Development Course</title>
+	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body class="bodybg">
+	
+	<!-- HEADER -->
+	<div class="col-md-12 col-sm-12 col-xs-12 navbar">
+		<span onclick="window.location='index.html';" style="cursor:pointer"><b>Final Project JavaScript Development Course</b></span>
+		<span class="pull-right">
+				<div class="btn-group btn-group-toggle" data-toggle="buttons">
+					<span class="btn btn-dark" onclick="window.location='profile.html';">
+					  Profile
+					</span>
+					<span class="btn btn-dark active" onclick="window.location='exercise1.html';">
+						Exercise-1
+					</span>
+					<span class="btn btn-dark" onclick="window.location='exercise2.html';">
+						Exercise-2
+					</span>
+					<span class="btn btn-dark" onclick="window.location='exercise3.html';">
+						Exercise-3
+					</span>
+				</div>
+		</span>
+	</div>
+	<!-- END HEADER -->
+
+	<!-- CONTENT -->
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		
+		<div class="row">
+			<div class="col-sm-3">&nbsp;</div>
+			<div class="col-sm-6 box">
+					<hr class="blue">
+					<h3>SUBMIT YOUR BIODATA</h3>
+					<hr class="blue">
+					<div class="container">
+						<form role="form" action="https://formspree.io/anggasukmasari@gmail.com" method="POST">
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<h6>Name</h6>
+									<input type="text" name="nama" value="Putu Angga Sukmasari" placeholder="input nama" class="form-control" required>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="form-group">
+									<h6>Gender</h6>
+									<input type="text" name="jk" value="Perempuan" placeholder="input jenis kelamin" class="form-control" required>
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="form-group">
+									<h6>Age (yo)</h6>
+									<input type="number" name="umur" value="20" max="26" class="form-control" required>
+								</div>
+							</div>
+							<div class="col-sm-7">
+								<div class="form-group">
+									<h6>Email</h6>
+									<input type="email" name="email" value="anggasukmasari@gmail.com" class="form-control">
+								</div>
+							</div>
+							<div class="col-sm-5">
+								<div class="form-group">
+									<h6>Date of birth</h6>
+									<input type="text" name="ttl" value="Denpasar, 29 Desember" class="form-control">
+								</div>
+							</div>
+							<div class="col-sm-12">
+								<div class="form-group">
+									<h6>Address</h6>
+									<textarea name="alamat" class="form-control">Jalan Yudistira No. 10 Denpasar</textarea>
+								</div>
+							</div>
+							<div class="col-sm-12">
+								<center><button type="submit" class="btn btn-success">Primary</button></center>
+							</div>
+						</div>
+						</form>
+					</div>
+					<hr class="blue">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-12">
+								<p class="textfoot">DevC JavaScript Development Course<br><b>Exercise 1</b></p>
+							</div>
+						</div>
+					</div>
+					<hr>
+			</div>
+			<div class="col-sm-3">&nbsp;</div>
+		</div>
+		
+	</div>
+	<!-- END CONTENT -->
+	
+	<script type="text/javascript" src="content.js"></script>
+</body>
+</html>

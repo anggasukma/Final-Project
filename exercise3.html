@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Final Project JavaScript Development Course</title>
+	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body class="bodybg">
+	
+	<!-- HEADER -->
+	<div class="col-md-12 col-sm-12 col-xs-12 navbar">
+		<span onclick="window.location='index.html';" style="cursor:pointer"><b>Final Project JavaScript Development Course</b></span>
+		<span class="pull-right">
+				<div class="btn-group btn-group-toggle" data-toggle="buttons">
+					<span class="btn btn-dark" onclick="window.location='profile.html';">
+					  Profile
+					</span>
+					<span class="btn btn-dark" onclick="window.location='exercise1.html';">
+						Exercise-1
+					</span>
+					<span class="btn btn-dark" onclick="window.location='exercise2.html';">
+						Exercise-2
+					</span>
+					<span class="btn btn-dark active" onclick="window.location='exercise3.html';">
+						Exercise-3
+					</span>
+				</div>
+		</span>
+	</div>
+	<!-- END HEADER -->
+
+	<!-- CONTENT -->
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<div class="scrolling-wrapper box">
+			<center><h2>PLANETS</h2></center><br>
+			<div class="row">
+				<div class="col-sm-2">
+					<div class="form-group">
+						<select id="pil_search" class="form-control"></select>  
+					</div>
+				</div>
+				<div class="col-sm-5">
+					<div class="form-group">
+						<input type="text" id="text_search" class="form-control" autocomplete="off">
+					</div>
+				</div>
+				<div class="col-sm-2">
+					<div class="form-group">
+						<button onclick="FungsiFilter()" class="btn btn-success">Search</button>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<table class="table table-bordered"  style="color: #fff;">
+						<thead><tr id="th"></tr></thead>
+						<tbody id="td"></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12 col-sm-12s col-xs-12">
+		<br>
+		<p class="textfoot">DevC JavaScript Development Course<br><b>Exercise 3</b></p>
+	</div>
+	<!-- END CONTENT -->
+	
+	<script type="text/javascript" src="content.js"></script>
+	<script type="text/javascript" src="planets.js"></script>
+	<script>
+		FungsiFilter();
+	
+		var input = document.getElementById("text_search");
+		input.addEventListener("keyup", function(event) {
+			if (event.keyCode === 13) {
+				event.preventDefault();
+				FungsiFilter();
+			}
+		});
+		
+		function FungsiFilter(){
+			// get filter
+			var pil_search = document.getElementById('pil_search').value;
+			var text_search = document.getElementById('text_search').value;
+	
+			// HEADER TABLE
+			var header = Object.keys(dataplanets.results[0]);
+			
+			document.getElementById('th').innerHTML = '';
+			document.getElementById("th").innerHTML += "<th>#</th>";
+			header.forEach(function(item){
+				var th = item.split('_');
+				if(th.length > 1){
+					k_th = th.join(' ');
+				} else {
+					k_th = item;
+				}
+				
+				k_th=k_th.charAt(0).toUpperCase() + k_th.slice(1);
+				
+				document.getElementById("th").innerHTML += '<th class="text-center align-middle">'+k_th+'</th>';
+				document.getElementById("pil_search").innerHTML += '<option value="'+item+'">'+k_th+'</th>';
+			})
+			// end HEADER TABLE
+	
+			// CONTENT TABLE
+			var row = dataplanets.results;
+			
+			document.getElementById('td').innerHTML = '';
+			if(text_search == ""){
+				row = row;
+			} else {
+				row = row.filter(function(x){
+					dtval = x[pil_search];
+					return dtval.toLowerCase().indexOf(text_search.toLowerCase()) > -1;
+				});  
+			}
+			
+			var no=1;
+			row.forEach(function(item){			
+				var isi='<td>'+no+'</td>';
+				header.forEach(function(col){
+					val=item[col];
+					if(Array.isArray(val)){
+						val_t = val.join('<br>'); 
+					} else {
+						val_t = val;
+					}
+					
+					isi += "<td>"+val_t+"</td>";
+				})
+				no++;
+				document.getElementById("td").innerHTML += "<tr>"+isi+"</tr>";
+			})
+			// end CONTENT TABLE
+
+			document.getElementById("pil_search").value = pil_search;
+		}
+	
+	</script>
+</body>
+</html>
